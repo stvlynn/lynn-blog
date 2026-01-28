@@ -5,17 +5,17 @@
 }
 
 :root {
-  --primary: #667eea;
-  --primary-dark: #764ba2;
-  --secondary: #f093fb;
-  --accent: #f5576c;
+  --primary: #ec4899;
+  --primary-dark: #db2777;
+  --secondary: #f472b6;
+  --accent: #fb7185;
   --text-primary: #1a202c;
   --text-secondary: #4a5568;
   --bg-primary: #ffffff;
-  --bg-secondary: #f7fafc;
-  --border: #e2e8f0;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --bg-secondary: #fdf2f8;
+  --border: #fce7f3;
+  --shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(236, 72, 153, 0.15);
 }
 
 body {
@@ -24,7 +24,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #fefce8 0%, #fdf2f8 50%, #fff1f2 100%);
   min-height: 100vh;
   color: var(--text-primary);
 }
@@ -75,7 +75,7 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
