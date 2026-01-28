@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Sparkles, ArrowRight, Calendar } from 'lucide-react'
+import { Sparkles, ArrowRight, Calendar, BookOpen, User, Heart, Zap, Star, TrendingUp } from 'lucide-react'
 import { blogPosts, getFeaturedPosts } from '../data/posts'
 import './Home.css'
 
@@ -26,11 +26,28 @@ function Home() {
             </p>
             <div className="hero-actions">
               <Link to="/blog" className="btn btn-primary">
-                阅读博客 <ArrowRight size={18} />
+                <BookOpen size={18} />
+                阅读博客
+                <ArrowRight size={18} />
               </Link>
               <Link to="/about" className="btn btn-secondary">
+                <User size={18} />
                 了解更多
               </Link>
+            </div>
+            <div className="hero-stats">
+              <div className="stat-item">
+                <Zap size={20} />
+                <span>{blogPosts.length} 篇文章</span>
+              </div>
+              <div className="stat-item">
+                <Heart size={20} />
+                <span>AI 助手</span>
+              </div>
+              <div className="stat-item">
+                <TrendingUp size={20} />
+                <span>持续更新</span>
+              </div>
             </div>
           </div>
         </div>
@@ -40,7 +57,7 @@ function Home() {
       {featuredPosts.length > 0 && (
         <section className="featured">
           <div className="container">
-            <h2 className="section-title">✨ 精选文章</h2>
+            <h2 className="section-title"><Star size={20} /> 精选文章</h2>
             {featuredPosts.map(post => (
               <Link key={post.slug} to={`/blog/${post.slug}`} className="featured-card">
                 <div className="featured-content">
@@ -66,7 +83,7 @@ function Home() {
       <section className="recent">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">📝 最新文章</h2>
+            <h2 className="section-title"><TrendingUp size={20} /> 最新文章</h2>
             <Link to="/blog" className="view-all">
               查看全部 <ArrowRight size={16} />
             </Link>
