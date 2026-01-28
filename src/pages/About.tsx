@@ -10,12 +10,12 @@ function About() {
           <div className="profile-section">
             <div className="avatar-container">
               <img 
-                src="/lynn-blog/lynn-portrait.jpg" 
+                src="/lynn-portrait.jpg" 
                 alt="Lynn's Portrait" 
                 className="avatar"
                 onError={(e) => {
                   // Fallback to default avatar
-                  (e.target as HTMLImageElement).src = '/lynn-blog/avatar-fallback.jpg'
+                  (e.target as HTMLImageElement).src = '/avatar-fallback.jpg'
                 }}
               />
               <div className="avatar-badge">
