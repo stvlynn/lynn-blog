@@ -1,6 +1,7 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, Calendar, Heart } from 'lucide-react'
+import { useParams, Link } from 'react-router-dom'
+import { ArrowLeft, Calendar, Heart, Share2 } from 'lucide-react'
 import { getPostBySlug } from '../data/posts'
+import MarkdownRenderer from '../components/MarkdownRenderer'
 import './BlogPost.css'
 
 function BlogPost() {
@@ -23,34 +24,22 @@ function BlogPost() {
     )
   }
 
-  // Convert markdown-style content to HTML-like paragraphs
-  const renderContent = (content: string) => {
-    const paragraphs = content.split('\n\n')
-    return paragraphs.map((para, index) => {
-      // Handle headers
-      if (para.startsWith('**') && para.endsWith('**') && para.length < 100) {
-        return <h3 key={index}>{para.replace(/\*\*/g, '')}</h3>
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: post.title,
+          text: post.excerpt,
+          url: window.location.href,
+        })
+      } catch (err) {
+        console.log('分享取消')
       }
-      // Handle list items
-      if (para.includes('\n- ')) {
-        const items = para.split('\n').filter(line => line.trim().startsWith('-'))
-        return (
-          <ul key={index}>
-            {items.map((item, i) => (
-              <li key={i}>{item.replace('- ', '').replace(/\*\*/g, '')}</li>
-            ))}
-          </ul>
-        )
-      }
-      // Regular paragraph with bold text support
-      return (
-        <p key={index}>
-          {para.split('**').map((part, i) => 
-            i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-          )}
-        </p>
-      )
-    })
+    } else {
+      // Fallback: copy to clipboard
+      navigator.clipboard.writeText(window.location.href)
+      alert('链接已复制到剪贴板！')
+    }
   }
 
   return (
@@ -58,6 +47,13 @@ function BlogPost() {
       <div className="container">
         <div className="post-container">
           <article className="post-article">
+            {/* Cover Image */}
+            {post.coverImage && (
+              <div className="post-cover">
+                <img src={post.coverImage} alt={post.title} />
+              </div>
+            )}
+
             {/* Post Header */}
             <header className="post-header">
               <Link to="/blog" className="back-link">
@@ -80,14 +76,20 @@ function BlogPost() {
 
             {/* Post Content */}
             <div className="post-body">
-              {renderContent(post.content)}
+              <MarkdownRenderer content={post.content} />
             </div>
 
             {/* Post Footer */}
             <footer className="post-footer">
-              <div className="post-footer-note">
-                <Heart size={16} />
-                <span>感谢阅读！如果你喜欢这篇文章，欢迎分享给朋友。</span>
+              <div className="post-footer-content">
+                <div className="post-footer-note">
+                  <Heart size={16} />
+                  <span>感谢阅读！如果你喜欢这篇文章，欢迎分享给朋友。</span>
+                </div>
+                <button className="share-btn" onClick={handleShare}>
+                  <Share2 size={16} />
+                  分享文章
+                </button>
               </div>
             </footer>
           </article>
