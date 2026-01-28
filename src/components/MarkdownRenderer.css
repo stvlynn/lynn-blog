@@ -86,6 +86,22 @@
   box-shadow: var(--shadow);
 }
 
+/* Small inline icons */
+.markdown-content p img[src*="icon-"] {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 1rem auto;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.markdown-content p img[src*="icon-"]:hover {
+  transform: scale(1.05);
+}
+
 /* Horizontal Rule */
 .md-hr {
   border: none;
