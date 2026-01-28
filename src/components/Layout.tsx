@@ -33,7 +33,14 @@ function Layout() {
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container header-content">
           <Link to="/" className="logo" aria-label="Lynn's Garden - 回到首页">
-            <Sparkles className="logo-icon" aria-hidden="true" />
+            <img 
+              src="/lynn-chibi.png" 
+              alt="" 
+              className="logo-chibi"
+              width="40"
+              height="40"
+              aria-hidden="true"
+            />
             <span className="logo-text">Lynn's Garden</span>
           </Link>
           <nav className="nav" aria-label="主导航">

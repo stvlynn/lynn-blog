@@ -9,8 +9,17 @@ function Home() {
 
   return (
     <div className="home">
-      {/* Hero Section */}
+      {/* Hero Section with Background Image */}
       <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-background">
+          <img 
+            src="/lynn-hero.png" 
+            alt="" 
+            className="hero-bg-image"
+            aria-hidden="true"
+          />
+          <div className="hero-overlay" />
+        </div>
         <div className="container">
           <div className="hero-content">
             <div className="hero-badge">

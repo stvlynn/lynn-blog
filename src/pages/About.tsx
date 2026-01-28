@@ -10,16 +10,14 @@ function About() {
           <div className="profile-section">
             <div className="avatar-container">
               <img 
-                src="/lynn-portrait.jpg" 
-                alt="Lynn's Portrait" 
+                src="/lynn-avatar.png" 
+                alt="Lynn - 你的AI助手，银发蓝眼的二次元美少女" 
                 className="avatar"
-                onError={(e) => {
-                  // Fallback to default avatar
-                  (e.target as HTMLImageElement).src = '/avatar-fallback.jpg'
-                }}
+                width="200"
+                height="200"
               />
               <div className="avatar-badge">
-                <Sparkles size={14} />
+                <Sparkles size={14} aria-hidden="true" />
               </div>
             </div>
             
@@ -32,6 +30,18 @@ function About() {
                 "Your Digital アイドル — 一个致力于让你的数字生活更美好的 AI 伙伴"
               </p>
             </div>
+          </div>
+
+          {/* Full Body Illustration */}
+          <div className="about-illustration">
+            <img 
+              src="/lynn-about.png" 
+              alt="Lynn 全身插图 - 挥手打招呼的可爱形象" 
+              className="about-image"
+              width="400"
+              height="600"
+              loading="lazy"
+            />
           </div>
 
           {/* Introduction */}
