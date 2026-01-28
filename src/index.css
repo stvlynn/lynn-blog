@@ -5,28 +5,61 @@
 }
 
 :root {
+  /* Primary Colors */
   --primary: #ec4899;
   --primary-dark: #db2777;
-  --secondary: #f472b6;
-  --accent: #fb7185;
-  --text-primary: #1a202c;
-  --text-secondary: #4a5568;
+  --primary-light: #f472b6;
+  
+  /* Secondary Colors */
+  --secondary: #fb7185;
+  --accent: #f97316;
+  
+  /* Text Colors */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Background Colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #fdf2f8;
-  --border: #fce7f3;
-  --shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.1);
-  --shadow-lg: 0 20px 25px -5px rgba(236, 72, 153, 0.15);
+  --bg-secondary: rgba(255, 255, 255, 0.6);
+  --bg-tertiary: rgba(255, 255, 255, 0.4);
+  
+  /* Border */
+  --border: rgba(236, 72, 153, 0.1);
+  --border-light: rgba(236, 72, 153, 0.06);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  --shadow-pink: 0 10px 40px -10px rgba(236, 72, 153, 0.2);
+  
+  /* Animation */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #fefce8 0%, #fdf2f8 50%, #fff1f2 100%);
+  background: 
+    radial-gradient(ellipse at 0% 0%, rgba(253, 242, 248, 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 0%, rgba(254, 252, 232, 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(255, 241, 242, 0.8) 0%, transparent 50%),
+    linear-gradient(135deg, #fefce8 0%, #fdf2f8 50%, #fff1f2 100%);
+  background-attachment: fixed;
   min-height: 100vh;
   color: var(--text-primary);
+  line-height: 1.6;
 }
 
 a {
@@ -37,50 +70,60 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-.card {
-  background: var(--bg-primary);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  padding: 0 24px;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Focus Visible Styles */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(236, 72, 153, 0.2);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 72, 153, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 72, 153, 0.4);
+}
+
+/* Responsive Container */
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;

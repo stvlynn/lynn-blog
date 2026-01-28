@@ -15,8 +15,8 @@ function Layout() {
     <div className="layout">
       <header className="header">
         <div className="container header-content">
-          <Link to="/" className="logo">
-            <Sparkles className="logo-icon" />
+          <Link to="/" className="logo" aria-label="Lynn's Garden - 回到首页">
+            <Sparkles className="logo-icon" aria-hidden="true" />
             <span className="logo-text">Lynn's Garden</span>
           </Link>
           <nav className="nav">
