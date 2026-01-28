@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation, ScrollRestoration } from 'react-router-dom'
+import { Outlet, Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Home, User, BookOpen, Sparkles, ArrowUp } from 'lucide-react'
 import './Layout.css'
@@ -30,8 +30,6 @@ function Layout() {
 
   return (
     <div className="layout">
-      <ScrollRestoration />
-      
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container header-content">
           <Link to="/" className="logo" aria-label="Lynn's Garden - 回到首页">
